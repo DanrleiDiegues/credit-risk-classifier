@@ -22,22 +22,13 @@ st.title("Credit Risk Analysis Application")
 st.sidebar.header("Options")
 
 # Seções do aplicativo
-option = st.sidebar.selectbox("Choose Section", ["Home", "Data Analysis", "Model Prediction", "Evaluation"])
+option = st.sidebar.selectbox("Choose Section", ["Home - Model Prediction", "Data Analysis"])
 
-if option == "Home":
+if option == "Home - Model Prediction":
     st.header("Welcome to Credit Risk Analysis App")
     st.write("Explore credit risk modeling and business insights interactively.")
     
-elif option == "Data Analysis":
-    st.header("Dataset Overview")
-    data = load_data()
-    st.write("Dataset Sample:")
-    st.dataframe(data.head(10))
-    st.write("Summary Statistics:")
-    st.write(data.describe())
-
-elif option == "Model Prediction":
-    st.header("Model Prediction")
+    st.write("Model Prediction")
     model = load_model()
     
     st.write("Input Data:")
@@ -150,8 +141,15 @@ elif option == "Model Prediction":
                 '<p style="color: white; background-color: green; padding: 10px; font-size: 18px; font-weight: bold;">Credit Approved</p>', 
                 unsafe_allow_html=True
             )
+    
+elif option == "Data Analysis":
+    st.header("Dataset Overview")
+    data = load_data()
+    st.write("Dataset Sample:")
+    st.dataframe(data.head(10))
+    st.write("Summary Statistics:")
+    st.write(data.describe())
 
- 
 #elif option == "Evaluation":
     
     #st.header("Model Evaluation")
