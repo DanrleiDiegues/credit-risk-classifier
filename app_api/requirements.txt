@@ -1,0 +1,9 @@
+fastapi
+gunicorn # Instal to run the server in production
+uvicorn[standard] # Garantee that the dependences of Uvicorn also be installed
+pydantic
+streamlit
+pandas
+numpy
+scikit-learn
+xgboost
