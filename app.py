@@ -3,21 +3,28 @@ import pandas as pd
 import numpy as np
 import pickle
 from sklearn.metrics import classification_report, roc_curve, auc
-from preprocessing import preprocess_data  # Importando a função de pré-processamento
+from preprocessing import preprocess_data
 
-# Carregar o modelo treinado
+# Load the model
 @st.cache_resource
 def load_model():
     with open("models/credit_risk_model.pkl", "rb") as file:
         loaded_model = pickle.load(file)
     return loaded_model
 
-# Função para carregar dados
+# Load the data
 @st.cache_data
 def load_data():
     return pd.read_csv("data/cr_loan2.csv")
 
-# Configuração inicial
+
+# Configure the page
+st.set_page_config(
+    page_title="Credit Risk Analysis App",
+    page_icon="📈",
+    layout="centered"
+)
+
 st.title("Credit Risk Analysis Application")
 st.sidebar.header("Options")
 
